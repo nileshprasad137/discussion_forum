@@ -83,7 +83,7 @@ while($rows2=mysqli_fetch_array($result2))
 		
 	</div>
 
-	<div class="col-md-8 panel-body">		
+	<div class="col-md-8 panel-body" style="word-wrap:break-word;">		
 			<?php echo $rows2['a_answer']; ?>
 	</div>
 	
