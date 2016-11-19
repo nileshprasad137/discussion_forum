@@ -13,7 +13,7 @@
   	.jumbotron
   	{
     background: url("jumbotron_images/Done.png") no-repeat center center ;
-    height:400px;
+    height:350px;
     margin-top:20px; 
     
 	}
@@ -54,8 +54,8 @@ if (isset($_REQUEST['submit_post'])) //here give the name of your button on whic
 		echo "<div class='jumbotron' >
 
 		      </div>";	
-		echo " <div class='well well-sm ' style='text-align:center;' >Your topic was successfully posted..</div>";
-		echo "<div class='well well-lg' style='text-align:center;'><a href=main_forum.php>View your topic</a><div>";
+		echo " <div class='alert alert-success' role='alert' style='text-align:center;' ><b>Your topic was successfully posted..</b></div>";
+		echo "<div class='well well-lg' style='text-align:center;'><a href=main_forum.php><b>View your topic</b></a><div>";
 		}
 		else 
 		{

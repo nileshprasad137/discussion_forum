@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MAIN FORUM</title>
+  <title>View Topic</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <?php
 
 Include('connect.php');
@@ -18,27 +19,41 @@ $result = $mysqli->query($sql);
 $rows1 = mysqli_fetch_array($result,MYSQLI_ASSOC);
 ?>
 
-<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-<tr>
-<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bordercolor="1" bgcolor="#FFFFFF">
-<tr>
-<td bgcolor="#F8F7F1"><strong><?php echo $rows1['topic']; ?></strong></td>
-</tr>
+<div class="container">
 
-<tr>
-<td bgcolor="#F8F7F1"><?php echo $rows1['detail']; ?></td>
-</tr>
+	<div class="well well-lg">
 
-<tr>
-<td bgcolor="#F8F7F1"><strong>By :</strong> <?php echo $rows1['name']; ?> <strong>Email : </strong><?php echo $rows1['email'];?></td>
-</tr>
+		<?php echo $rows1['topic']; ?>
+		
+	</div>
 
-<tr>
-<td bgcolor="#F8F7F1"><strong>Date/time : </strong><?php echo $rows1['datetime']; ?></td>
-</tr>
-</table></td>
-</tr>
-</table>
+	
+	    <div class="panel panel-success">
+		    <div class="panel-heading" style="text-align:left">
+
+		    	<?php echo '<b>By :: '.$rows1['name'].'</b><br>'; ?>
+		    	<?php echo '<b>Email :: '.$rows1['email'].'</b>'; ?>
+
+		    	<div class="panel-heading" style="text-align:right">
+		    	
+		    		<?php echo '<b>'.$rows1['datetime'].'</b>'; ?>
+		    		
+		    	</div>
+		    	
+		    </div>
+		    
+		    <div class="panel-body "><?php echo $rows1['detail']; ?></div>
+		</div>
+
+	
+</div>
+
+<div class="container alert alert-info" role="alert">
+
+  	<strong>Repies..!</strong>
+
+</div>
+
 <BR>
 
 <?php
