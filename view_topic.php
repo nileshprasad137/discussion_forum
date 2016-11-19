@@ -47,12 +47,13 @@ $rows1 = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
 	
 </div>
-
+<hr>
 <div class="container alert alert-info" role="alert">
 
   	<strong>Repies..!</strong>
 
 </div>
+
 
 <BR>
 
@@ -63,40 +64,32 @@ $tbl_name2="forum_answer"; // Switch to table "forum_answer"
 $sql2="SELECT * FROM $tbl_name2 WHERE question_id='$id'";
 $result2=$mysqli->query($sql2);
 
-while($rows2=mysqli_fetch_array($result2)){
+while($rows2=mysqli_fetch_array($result2))
+{
 ?>
 
-<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-<tr>
-<td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-<tr>
-<td bgcolor="#F8F7F1"><strong>ID</strong></td>
-<td bgcolor="#F8F7F1">:</td>
-<td bgcolor="#F8F7F1"><?php echo $rows2['a_id']; ?></td>
-</tr>
-<tr>
-<td width="18%" bgcolor="#F8F7F1"><strong>Name</strong></td>
-<td width="5%" bgcolor="#F8F7F1">:</td>
-<td width="77%" bgcolor="#F8F7F1"><?php echo $rows2['a_name']; ?></td>
-</tr>
-<tr>
-<td bgcolor="#F8F7F1"><strong>Email</strong></td>
-<td bgcolor="#F8F7F1">:</td>
-<td bgcolor="#F8F7F1"><?php echo $rows2['a_email']; ?></td>
-</tr>
-<tr>
-<td bgcolor="#F8F7F1"><strong>Answer</strong></td>
-<td bgcolor="#F8F7F1">:</td>
-<td bgcolor="#F8F7F1"><?php echo $rows2['a_answer']; ?></td>
-</tr>
-<tr>
-<td bgcolor="#F8F7F1"><strong>Date/Time</strong></td>
-<td bgcolor="#F8F7F1">:</td>
-<td bgcolor="#F8F7F1"><?php echo $rows2['a_datetime']; ?></td>
-</tr>
-</table></td>
-</tr>
-</table><br>
+<div class="container">
+   <div class="panel panel-success">
+
+	<div class="col-md-4 panel-heading">
+
+		<div class="well well-lg">
+			#:<?php echo $rows2['a_id']; ?><br>
+			Name:<?php echo $rows2['a_name']; ?><br>
+			Email:<?php echo $rows2['a_email']; ?><br>
+			Date/Time:<?php echo $rows2['a_datetime']; ?>
+
+		</div>
+		
+	</div>
+
+	<div class="col-md-8 panel-body">		
+			<?php echo $rows2['a_answer']; ?>
+	</div>
+	
+  </div>
+ </div>
+<hr><br>
 
  
 
@@ -113,7 +106,8 @@ $view=$rows['view'];
  
 
 // if have no counter value set counter = 1
-if(empty($view)){
+if(empty($view))
+{
 $view=1;
 $sql4="INSERT INTO $tbl_name(view) VALUES('$view') WHERE id='$id'";
 $result4=$mysqli->query($sql4);
