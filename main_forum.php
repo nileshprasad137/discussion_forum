@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MAIN FORUM</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <?php
 
 //include connect.php page for database connection
@@ -20,14 +29,15 @@ $result = $mysqli->query($sql);
 
 <?php
 // Start looping table row
-while($rows=mysqli_fetch_array($result)){
+while($rows=mysqli_fetch_array($result))
+{
 ?>
 <tr>
-<td bgcolor="#FFFFFF"><? echo $rows['id']; ?></td>
-<td bgcolor="#FFFFFF"><a href="view_topic.php?id=<? echo $rows['id']; ?>"><? echo $rows['topic']; ?></a><BR></td>
-<td align="center" bgcolor="#FFFFFF"><? echo $rows['view']; ?></td>
-<td align="center" bgcolor="#FFFFFF"><? echo $rows['reply']; ?></td>
-<td align="center" bgcolor="#FFFFFF"><? echo $rows['datetime']; ?></td>
+<td bgcolor="#FFFFFF"><?php echo $rows['id']; ?></td>
+<td bgcolor="#FFFFFF"><a href="view_topic.php?id= <?php echo $rows['id']; ?> "><?php echo $rows['topic']; ?></a><BR></td>
+<td align="center" bgcolor="#FFFFFF"><?php echo $rows['view']; ?></td>
+<td align="center" bgcolor="#FFFFFF"><?php echo $rows['reply']; ?></td>
+<td align="center" bgcolor="#FFFFFF"><?php echo $rows['datetime']; ?></td>
 </tr>
 
 <?php
@@ -40,3 +50,5 @@ $mysqli->close();
 <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="create_topic.php"><strong>Create New Topic</strong> </a></td>
 </tr>
 </table>
+
+<a href="view_topic.php?id=<? echo $rows['id']; ?>"><? echo $rows['topic']; ?></a><BR></td>
