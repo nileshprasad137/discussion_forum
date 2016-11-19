@@ -48,7 +48,7 @@ $tbl_name2="forum_answer"; // Switch to table "forum_answer"
 $sql2="SELECT * FROM $tbl_name2 WHERE question_id='$id'";
 $result2=$mysqli->query($sql2);
 
-while($rows2=mysqli_fetch_array($result2,MYSQLI_NUM)){
+while($rows2=mysqli_fetch_array($result2)){
 ?>
 
 <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
