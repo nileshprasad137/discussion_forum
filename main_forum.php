@@ -31,24 +31,31 @@ $result = $mysqli->query($sql);
 
 -->
 	<body>
+			
 			<div class="container">
+				
 				<h2>List of all the discussions..</h2>
-  				<p>You can click on the topic name to reply to the query..</p>
-				<table class="table table-hover table-responsive">
+				<div class="well well-lg">
+					<a href="create_topic.php"><b>Create New Discussion..</b> </a>					
+				</div>
+  				<p>You can click on the topic name to join the discussion.. </p>
+				<table class="table table-hover table-responsive table-inverse">
 
 					<thead>
 				      <tr>
-				        <th>#</th>
-				        <th><b>Topic</b></th>
-				        <th><b>Views<b></th>
-				        <th><b>Replies<b></th>
-				        <th><b>Date/Time<b></th>
+				        <!--<th style="text-align:center;">#</th>-->
+				        <th class="bg-info" style="text-align:center;"><b>Topic</b></th>
+				        <th class="bg-info" style="text-align:center;"><b>Views</b></th>
+				        <th class="bg-info" style="text-align:center;"><b>Replies</b></th>
+				        <th class="bg-info" style="text-align:center;"><b>Date/Time</b></th>
 				      </tr>
 				    </thead>
+
+				    <tbody>
 					
-				</div>
 				
-			</div>
+
+		
 
 
 <?php
@@ -57,11 +64,11 @@ while($rows=mysqli_fetch_array($result))
 {
 ?>
 <tr>
-<td bgcolor="#FFFFFF"><?php echo $rows['id']; ?></td>
-<td bgcolor="#FFFFFF"><a href="view_topic.php?id= <?php echo $rows['id']; ?> "><?php echo $rows['topic']; ?></a><BR></td>
-<td align="center" bgcolor="#FFFFFF"><?php echo $rows['view']; ?></td>
-<td align="center" bgcolor="#FFFFFF"><?php echo $rows['reply']; ?></td>
-<td align="center" bgcolor="#FFFFFF"><?php echo $rows['datetime']; ?></td>
+<!--<td style="text-align:center;"> /*<?php //echo $rows['id']; ?><!--</td>-->
+<td class="bg-success" style="text-align:center;"><a href="view_topic.php?id= <?php echo $rows['id']; ?> "><?php echo $rows['topic']; ?></a><BR></td>
+<td class="bg-warning" style="text-align:center;"><?php echo $rows['view']; ?></td>
+<td class="bg-danger" style="text-align:center;"><?php echo $rows['reply']; ?></td>
+<td class="bg-primary" style="text-align:center;"><?php echo $rows['datetime']; ?></td>
 </tr>
 
 <?php
@@ -69,10 +76,18 @@ while($rows=mysqli_fetch_array($result))
 }
 $mysqli->close();
 ?>
+	</BR>
+	</td>
+	</tr>
+	</tbody>
 
-<tr>
-<td colspan="5" align="right" bgcolor="#E6E6E6"><a href="create_topic.php"><strong>Create New Topic</strong> </a></td>
-</tr>
-</table>
 
-<a href="view_topic.php?id=<? echo $rows['id']; ?>"><? echo $rows['topic']; ?></a><BR></td>
+	</div>
+	</table>
+	</div>
+	</body>
+  </head>
+</html>
+
+
+
