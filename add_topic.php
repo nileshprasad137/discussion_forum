@@ -54,7 +54,7 @@ if (isset($_REQUEST['submit_post'])) //here give the name of your button on whic
 		echo "<div class='jumbotron' >
 
 		      </div>";	
-		echo " <div class='well well-lg ' style='text-align:center;' >Your topic was successfully posted..</div>";
+		echo " <div class='well well-sm ' style='text-align:center;' >Your topic was successfully posted..</div>";
 		echo "<div class='well well-lg' style='text-align:center;'><a href=main_forum.php>View your topic</a><div>";
 		}
 		else 

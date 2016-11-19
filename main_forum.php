@@ -17,6 +17,8 @@ $sql="SELECT * FROM $tbl_name ORDER BY id DESC";
 
 $result = $mysqli->query($sql);
 ?>
+<!--
+
 
 <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
 <tr>
@@ -26,6 +28,28 @@ $result = $mysqli->query($sql);
 <td width="13%" align="center" bgcolor="#E6E6E6"><strong>Replies</strong></td>
 <td width="13%" align="center" bgcolor="#E6E6E6"><strong>Date/Time</strong></td>
 </tr>
+
+-->
+	<body>
+			<div class="container">
+				<h2>List of all the discussions..</h2>
+  				<p>You can click on the topic name to reply to the query..</p>
+				<table class="table table-hover table-responsive">
+
+					<thead>
+				      <tr>
+				        <th>#</th>
+				        <th><b>Topic</b></th>
+				        <th><b>Views<b></th>
+				        <th><b>Replies<b></th>
+				        <th><b>Date/Time<b></th>
+				      </tr>
+				    </thead>
+					
+				</div>
+				
+			</div>
+
 
 <?php
 // Start looping table row
