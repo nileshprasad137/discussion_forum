@@ -11,7 +11,7 @@
   
   <style type="text/css">   
 
-    
+    /*
     footer
     {
       background-color: #121212;
@@ -24,7 +24,21 @@
       right: 0;
       bottom: 0;
       left: 0;
-    }   
+    }*/
+
+    .navbar{
+    background-color: skyblue;
+    border-style: none;    
+    color:green;
+    height: 75px;
+    text-align: center;
+    font-family: sans-serif;
+    color:black;
+    font-size: 20px;
+    
+
+
+     }
 
 
   </style>
@@ -33,11 +47,37 @@
  <body>
 
 
-   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-     
-   </nav>
+   <nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="#"><h3 style="color:black;">Home</h4></a></li>
+        <li ><a href="create_topic.php"><h3 style="color:black;">DiscussionForum</h4></a></li>
+   
+         
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <li ><a href="main_forum.php"><h3 style="color:black;">CurrentTopics</h4></a></li>        
+        <li style="font-weight:bold"><a href="#"><span class="glyphicon glyphicon-menu-hamburger" style="color:black"></span><h4 style="color:black;"> AboutUs</h4></a></li>  
+        <li style="font-weight:bold"><a href="#"><span class="glyphicon glyphicon-earphone" style="color:black"></span> <h4 style="color:black;">ContactUs</h4></a></li> 
+             
 
-   <div class="container">
+      </ul>
+    </div>
+  </div>
+  </nav>
+
+   <div class="container" style="margin-top:100px;">
+
+   <h2 style="text-align:center;font-style:bold">Discussion Forum</h2>
 
       <form action="add_topic.php" method="POST">
 

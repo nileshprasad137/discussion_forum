@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Discussion Forum</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+  	.jumbotron
+  	{
+    background: url("jumbotron_images/Done.png") no-repeat center center ;
+    height:350px;
+    margin-top:20px; 
+    
+	}
+  </style>
+
+
 <?php
 
 Include("connect.php");
@@ -35,9 +57,12 @@ $result2=$mysqli->query($sql2);
 
 if($result2)
 {
-echo "Successful<BR>";
-echo "<a href='view_topic.php?id=".$id."'>View your answer</a>";
 
+		echo "<div class='jumbotron' >
+
+		      </div>";	
+		echo " <div class='alert alert-success' role='alert' style='text-align:center;' ><b>Your reply was successfully posted..</b></div>";
+		echo "<div class='well well-lg' style='text-align:center;'><a href='view_topic.php?id=".$id."'>View your answer</a><div>";
 
 // If added new answer, add value +1 in reply column
 $tbl_name2="forum_question";

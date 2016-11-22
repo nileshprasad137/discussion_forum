@@ -7,6 +7,25 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+
+  .navbar{
+    background-color: skyblue;
+    border-style: none;    
+    color:green;
+    height: 75px;
+    text-align: center;
+    font-family: sans-serif;
+    color:black;
+    font-size: 20px;
+    
+
+
+     }
+
+
+
+  </style>
 
 <?php
 
@@ -19,17 +38,52 @@ $result = $mysqli->query($sql);
 $rows1 = mysqli_fetch_array($result,MYSQLI_ASSOC);
 ?>
 
-<div class="container">
+
+   <nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="#"><h3 style="color:black;">Home</h4></a></li>
+        <li ><a href="create_topic.php"><h3 style="color:black;">DiscussionForum</h4></a></li>
+   
+         
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li style="font-weight:bold"><a href="#"><span class="glyphicon glyphicon-menu-hamburger" style="color:black"></span><h4 style="color:black;"> AboutUs</h4></a></li>  
+        <li style="font-weight:bold"><a href="#"><span class="glyphicon glyphicon-earphone" style="color:black"></span> <h4 style="color:black;">ContactUs</h4></a></li> 
+             
+
+      </ul>
+    </div>
+  </div>
+  </nav>
+
+<div class="container" style="margin-top:100px;">
+
+	<div >
+
+  			<b><h3 style="text-align:center">Topic of discussion</h3></b>
+
+	</div>
 
 	<div class="well well-lg">
 
-		<?php echo $rows1['topic']; ?>
+		<?php echo '<h5><B>'.$rows1['topic'].'</h5></B><BR>'; ?>
 		
 	</div>
 
 	
 	    <div class="panel panel-success">
-		    <div class="panel-heading" style="text-align:left">
+		    <div class="panel-heading" style="text-align:left;word-wrap:break-word;">
 
 		    	<?php echo '<b>By :: '.$rows1['name'].'</b><br>'; ?>
 		    	<?php echo '<b>Email :: '.$rows1['email'].'</b>'; ?>
@@ -42,15 +96,15 @@ $rows1 = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		    	
 		    </div>
 		    
-		    <div class="panel-body "><?php echo $rows1['detail']; ?></div>
+		    <div class="panel-body" style="word-wrap:break-word;"><?php echo $rows1['detail']; ?></div>
 		</div>
 
 	
 </div>
 <hr>
-<div class="container alert alert-info" role="alert">
+<div >
 
-  	<strong>Repies..!</strong>
+  	<b><h3 style="text-align:left;margin-left:100px">Replies</h3></b>
 
 </div>
 
@@ -125,36 +179,53 @@ $mysqli->close();
 
 
 <BR>
-<table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-<tr>
-<form name="form1" method="post" action="add_answer.php">
-<td>
-<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-<tr>
-<td width="18%"><strong>Name</strong></td>
-<td width="3%">:</td>
-<td width="79%"><input name="a_name" type="text" id="a_name" size="45"></td>
-</tr>
-<tr>
-<td><strong>Email</strong></td>
-<td>:</td>
-<td><input name="a_email" type="text" id="a_email" size="45"></td>
-</tr>
-<tr>
-<td valign="top"><strong>Answer</strong></td>
-<td valign="top">:</td>
-<td><textarea name="a_answer" cols="45" rows="3" id="a_answer"></textarea></td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td><input name="id" type="hidden" value="<?php echo $id; ?>"></td>
-<td><input type="submit" name="Submit" value="Submit"> <input type="reset" name="Submit2" value="Reset"></td>
-</tr>
-</table>
-</td>
+
+<div class="container">
+	
+
+<form method="post" action="add_answer.php">
+	<div class="row">
+							<div class="col-sm-6 form-group">
+								<label for="f_name">Name</label>
+								<input type="text" placeholder="Enter your Name.."  name="a_name" id="a_name" class="form-control">
+							</div>
+							
+	</div>
+
+	<div class="row">
+							<div class="col-sm-6 form-group">
+								<label for="a_email">Email</label>
+								<input type="text" placeholder="Enter your email.."  name="a_email" id="a_email" class="form-control">
+							</div>
+							
+	</div>	
+
+	<div class="row">
+							<div class="col-sm-6 form-group">
+								<label for="a_answer">Answer</label>
+								<textarea rows="5" placeholder="Enter your reply.."  name="a_answer" id="a_answer" class="form-control"></textarea>
+							</div>
+							
+	</div>	
+	<div class="row">
+
+					<div class="col-md-6">
+              						<input type="submit" name="Submit" value="SUBMIT" class="btn btn-lg btn-success btn-block">
+          			</div>		
+	</div>
+
+	<br><br><hr>		
+		
+		<tr>
+			<td>&nbsp;</td>
+			<td><input name="id" type="hidden" value="<?php echo $id; ?>"></td>
+			<!--<td><input type="submit" name="Submit" value="Submit"> <input type="reset" name="Submit2" value="Reset"></td>-->
+		</tr>
+		
+	</td>
 </form>
-</tr>
-</table>
+
+</div>
 
 
-?>
+
